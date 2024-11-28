@@ -1,6 +1,7 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
 Imports System.Reflection.Emit
 Imports System.Runtime.InteropServices
+Imports MySql.Data.MySqlClient
 
 Public Class RegisterPage
     ' Import the CreateRoundRectRgn function from the Windows API
@@ -210,12 +211,27 @@ Public Class RegisterPage
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
-        MessageBox.Show("Registered Successfully")
-        LoginPage.Show()
-        txtName1.Clear()
-        txtEmail2.Clear()
-        txtPassword2.Clear()
-        txtConPassword1.Clear()
+        con.Open()
+
+        Try
+            cmd.Connection = con
+            Dim query As New MySqlCommand("INSERT INTO user(`Email`,`Password`,`TypeofAccount`,`Name`) VALUES ('" & txtEmail2.Text & "','" & txtPassword2.Text & "','" & cbxAdminUser1.SelectedItem & "','" & txtName1.Text & "')", con)
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("Registered Successfully")
+            con.Close()
+            txtName1.Clear()
+            txtEmail2.Clear()
+            txtPassword2.Clear()
+            txtConPassword1.Clear()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+        WelcomeStart.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub txtName1_TextChanged(sender As Object, e As EventArgs) Handles txtName1.TextChanged
+
     End Sub
 End Class

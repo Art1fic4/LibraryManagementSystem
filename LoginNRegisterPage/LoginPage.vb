@@ -170,19 +170,35 @@ Public Class LoginPage
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        MessageBox.Show("Login Successfully")
-        AdminDashboard.Show()
-        txtEmail.Clear()
-        txtPassword.Clear()
+        Try
+            con.Open()
+            Dim cmd As New MySql.Data.MySqlClient.MySqlCommand("Select TypeOfAccount from user where email = @Email and Password = @Password", con)
+            cmd.Parameters.AddWithValue("@Email", txtEmail.Text)
+            cmd.Parameters.AddWithValue("@Password", txtPassword.Text)
 
-        ' Reset placeholders for email and password
-        txtEmail.Text = "enter your email"
-        txtEmail.ForeColor = Color.Gray
+            Dim TypeOfAccount As String = Convert.ToString(cmd.ExecuteScalar)
+            If Not String.IsNullOrEmpty(TypeOfAccount) Then
+                MessageBox.Show("login successful")
 
-        txtPassword.Text = "enter your password"
-        txtPassword.ForeColor = Color.Gray
-        txtPassword.UseSystemPasswordChar = False ' No password masking for placeholder
+                Select Case TypeOfAccount
+                    Case "User"
+                        UserInterface.Show()
+                    Case "Admin"
+                        AdminDashboard.Show()
+                    Case Else
+                        MessageBox.Show("Invalid Credentials")
 
-        Me.Hide()
+                End Select
+
+
+                Me.Hide()
+            Else
+
+            End If
+        Catch ex As Exception
+            MsgBox("mysql error: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
