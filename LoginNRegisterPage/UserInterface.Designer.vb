@@ -35,6 +35,7 @@ Partial Class UserInterface
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Me.searchengine = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,6 +44,7 @@ Partial Class UserInterface
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.searchengine, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -53,17 +55,19 @@ Partial Class UserInterface
         Me.Panel1.Controls.Add(Me.CloseWindow3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1649, 58)
+        Me.Panel1.Size = New System.Drawing.Size(1040, 47)
         Me.Panel1.TabIndex = 0
         '
         'MinimizedWindow3
         '
         Me.MinimizedWindow3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MinimizedWindow3.Image = Global.LoginNRegisterPage.My.Resources.Resources.MinimizedWindow
-        Me.MinimizedWindow3.Location = New System.Drawing.Point(1529, 15)
+        Me.MinimizedWindow3.Location = New System.Drawing.Point(950, 12)
+        Me.MinimizedWindow3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MinimizedWindow3.Name = "MinimizedWindow3"
-        Me.MinimizedWindow3.Size = New System.Drawing.Size(28, 26)
+        Me.MinimizedWindow3.Size = New System.Drawing.Size(21, 21)
         Me.MinimizedWindow3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.MinimizedWindow3.TabIndex = 5
         Me.MinimizedWindow3.TabStop = False
@@ -72,9 +76,10 @@ Partial Class UserInterface
         '
         Me.MaximizeWindow3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaximizeWindow3.Image = Global.LoginNRegisterPage.My.Resources.Resources.MaximizeWindow
-        Me.MaximizeWindow3.Location = New System.Drawing.Point(1569, 15)
+        Me.MaximizeWindow3.Location = New System.Drawing.Point(980, 12)
+        Me.MaximizeWindow3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeWindow3.Name = "MaximizeWindow3"
-        Me.MaximizeWindow3.Size = New System.Drawing.Size(28, 26)
+        Me.MaximizeWindow3.Size = New System.Drawing.Size(21, 21)
         Me.MaximizeWindow3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.MaximizeWindow3.TabIndex = 4
         Me.MaximizeWindow3.TabStop = False
@@ -83,9 +88,10 @@ Partial Class UserInterface
         '
         Me.CloseWindow3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CloseWindow3.Image = Global.LoginNRegisterPage.My.Resources.Resources.CloseWindow
-        Me.CloseWindow3.Location = New System.Drawing.Point(1609, 15)
+        Me.CloseWindow3.Location = New System.Drawing.Point(1010, 12)
+        Me.CloseWindow3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CloseWindow3.Name = "CloseWindow3"
-        Me.CloseWindow3.Size = New System.Drawing.Size(28, 26)
+        Me.CloseWindow3.Size = New System.Drawing.Size(21, 21)
         Me.CloseWindow3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.CloseWindow3.TabIndex = 2
         Me.CloseWindow3.TabStop = False
@@ -94,9 +100,10 @@ Partial Class UserInterface
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(65, 45)
+        Me.Label1.Location = New System.Drawing.Point(49, 37)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(76, 26)
+        Me.Label1.Size = New System.Drawing.Size(64, 22)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Books"
         '
@@ -104,9 +111,10 @@ Partial Class UserInterface
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(184, 45)
+        Me.Label2.Location = New System.Drawing.Point(138, 37)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(209, 26)
+        Me.Label2.Size = New System.Drawing.Size(176, 22)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Borrowing of Books"
         '
@@ -114,9 +122,10 @@ Partial Class UserInterface
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(444, 45)
+        Me.Label3.Location = New System.Drawing.Point(333, 37)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(160, 26)
+        Me.Label3.Size = New System.Drawing.Size(133, 22)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "New Releases"
         '
@@ -124,18 +133,20 @@ Partial Class UserInterface
         '
         Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Font = New System.Drawing.Font("Arial", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(1244, 46)
+        Me.TextBox1.Location = New System.Drawing.Point(802, 38)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(190, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(144, 24)
         Me.TextBox1.TabIndex = 5
         '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.LoginNRegisterPage.My.Resources.Resources.SearchBar
-        Me.PictureBox1.Location = New System.Drawing.Point(1438, 47)
+        Me.PictureBox1.Location = New System.Drawing.Point(947, 39)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(28, 26)
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
@@ -144,9 +155,10 @@ Partial Class UserInterface
         '
         Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox2.Image = Global.LoginNRegisterPage.My.Resources.Resources.NotificationBell
-        Me.PictureBox2.Location = New System.Drawing.Point(1211, 47)
+        Me.PictureBox2.Location = New System.Drawing.Point(777, 39)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(28, 26)
+        Me.PictureBox2.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 7
         Me.PictureBox2.TabStop = False
@@ -155,9 +167,10 @@ Partial Class UserInterface
         '
         Me.PictureBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox3.Image = Global.LoginNRegisterPage.My.Resources.Resources.UserProfile
-        Me.PictureBox3.Location = New System.Drawing.Point(1485, 37)
+        Me.PictureBox3.Location = New System.Drawing.Point(983, 31)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(49, 43)
+        Me.PictureBox3.Size = New System.Drawing.Size(37, 35)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 8
         Me.PictureBox3.TabStop = False
@@ -167,6 +180,7 @@ Partial Class UserInterface
         Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.searchengine)
         Me.Panel2.Controls.Add(Me.PictureBox3)
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.PictureBox1)
@@ -174,9 +188,10 @@ Partial Class UserInterface
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(0, 58)
+        Me.Panel2.Location = New System.Drawing.Point(0, 47)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1649, 881)
+        Me.Panel2.Size = New System.Drawing.Size(1237, 716)
         Me.Panel2.TabIndex = 1
         '
         'MySqlCommand1
@@ -186,14 +201,27 @@ Partial Class UserInterface
         Me.MySqlCommand1.EnableCaching = False
         Me.MySqlCommand1.Transaction = Nothing
         '
+        'searchengine
+        '
+        Me.searchengine.AllowUserToAddRows = False
+        Me.searchengine.AllowUserToDeleteRows = False
+        Me.searchengine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.searchengine.Location = New System.Drawing.Point(706, 82)
+        Me.searchengine.Name = "searchengine"
+        Me.searchengine.ReadOnly = True
+        Me.searchengine.Size = New System.Drawing.Size(240, 150)
+        Me.searchengine.TabIndex = 9
+        Me.searchengine.Visible = False
+        '
         'UserInterface
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1649, 939)
+        Me.ClientSize = New System.Drawing.Size(1040, 640)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "UserInterface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -206,6 +234,7 @@ Partial Class UserInterface
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.searchengine, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -223,4 +252,5 @@ Partial Class UserInterface
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
+    Friend WithEvents searchengine As DataGridView
 End Class

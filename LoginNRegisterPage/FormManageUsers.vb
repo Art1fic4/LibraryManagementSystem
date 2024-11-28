@@ -2,6 +2,7 @@
 Imports System.Reflection.Emit
 Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
+Imports MySql.Data.MySqlClient
 
 Public Class FormManageUsers
     ' Import the CreateRoundRectRgn function from the Windows API
@@ -130,4 +131,55 @@ Public Class FormManageUsers
         AdminDashboard.Show()
         Me.Close()
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+
+    End Sub
+
+    Private Sub searchbut_Click(sender As Object, e As EventArgs) Handles searchbut.Click
+        Dim query As String = txtSearch.Text
+        Dim dt As DataTable = SearchUsers(query)
+
+        If dt.Rows.Count > 0 Then
+            DataGridView1.DataSource = dt
+            DataGridView1.Visible = True
+        Else
+            MessageBox.Show("No results found for your query.")
+        End If
+    End Sub
+    Private Function SearchUsers(query As String) As DataTable
+        Dim dt As New DataTable()
+        Dim cmd As MySqlCommand
+        Try
+            con.Open()
+
+
+            Dim sqlQuery As String = "SELECT * FROM user WHERE Name LIKE @query"
+            cmd = New MySqlCommand(sqlQuery, con)
+            cmd.Parameters.AddWithValue("@query", "%" & query & "%")
+
+
+            Dim da As New MySqlDataAdapter(cmd)
+            da.Fill(dt)
+
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        Finally
+
+            If con IsNot Nothing AndAlso con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+
+
+            If cmd IsNot Nothing Then
+                cmd.Dispose()
+            End If
+        End Try
+
+        Return dt
+    End Function
 End Class

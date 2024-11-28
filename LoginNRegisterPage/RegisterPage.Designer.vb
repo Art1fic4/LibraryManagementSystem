@@ -47,16 +47,18 @@ Partial Class RegisterPage
         Me.Panel1.Controls.Add(Me.MinimizedWindow1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(496, 58)
+        Me.Panel1.Size = New System.Drawing.Size(372, 47)
         Me.Panel1.TabIndex = 3
         '
         'CloseWindow1
         '
         Me.CloseWindow1.Image = Global.LoginNRegisterPage.My.Resources.Resources.CloseWindow
-        Me.CloseWindow1.Location = New System.Drawing.Point(456, 17)
+        Me.CloseWindow1.Location = New System.Drawing.Point(342, 14)
+        Me.CloseWindow1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CloseWindow1.Name = "CloseWindow1"
-        Me.CloseWindow1.Size = New System.Drawing.Size(28, 26)
+        Me.CloseWindow1.Size = New System.Drawing.Size(21, 21)
         Me.CloseWindow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.CloseWindow1.TabIndex = 1
         Me.CloseWindow1.TabStop = False
@@ -64,9 +66,10 @@ Partial Class RegisterPage
         'MinimizedWindow1
         '
         Me.MinimizedWindow1.Image = Global.LoginNRegisterPage.My.Resources.Resources.MinimizedWindow
-        Me.MinimizedWindow1.Location = New System.Drawing.Point(409, 16)
+        Me.MinimizedWindow1.Location = New System.Drawing.Point(307, 13)
+        Me.MinimizedWindow1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MinimizedWindow1.Name = "MinimizedWindow1"
-        Me.MinimizedWindow1.Size = New System.Drawing.Size(31, 26)
+        Me.MinimizedWindow1.Size = New System.Drawing.Size(23, 21)
         Me.MinimizedWindow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.MinimizedWindow1.TabIndex = 2
         Me.MinimizedWindow1.TabStop = False
@@ -75,9 +78,10 @@ Partial Class RegisterPage
         '
         Me.lblLogin.AutoSize = True
         Me.lblLogin.Font = New System.Drawing.Font("Arial", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLogin.Location = New System.Drawing.Point(100, 92)
+        Me.lblLogin.Location = New System.Drawing.Point(75, 75)
+        Me.lblLogin.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLogin.Name = "lblLogin"
-        Me.lblLogin.Size = New System.Drawing.Size(275, 38)
+        Me.lblLogin.Size = New System.Drawing.Size(229, 32)
         Me.lblLogin.TabIndex = 4
         Me.lblLogin.Text = "REGISTER NOW"
         '
@@ -87,9 +91,10 @@ Partial Class RegisterPage
         Me.txtName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtName1.Font = New System.Drawing.Font("Arial", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName1.ForeColor = System.Drawing.Color.Gray
-        Me.txtName1.Location = New System.Drawing.Point(71, 161)
+        Me.txtName1.Location = New System.Drawing.Point(53, 131)
+        Me.txtName1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtName1.Name = "txtName1"
-        Me.txtName1.Size = New System.Drawing.Size(355, 28)
+        Me.txtName1.Size = New System.Drawing.Size(267, 24)
         Me.txtName1.TabIndex = 5
         Me.txtName1.TabStop = False
         Me.txtName1.Text = "enter your name"
@@ -100,9 +105,10 @@ Partial Class RegisterPage
         Me.txtPassword2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPassword2.Font = New System.Drawing.Font("Arial", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword2.ForeColor = System.Drawing.Color.Gray
-        Me.txtPassword2.Location = New System.Drawing.Point(71, 255)
+        Me.txtPassword2.Location = New System.Drawing.Point(53, 207)
+        Me.txtPassword2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPassword2.Name = "txtPassword2"
-        Me.txtPassword2.Size = New System.Drawing.Size(355, 28)
+        Me.txtPassword2.Size = New System.Drawing.Size(267, 24)
         Me.txtPassword2.TabIndex = 6
         Me.txtPassword2.TabStop = False
         Me.txtPassword2.Text = "enter your password"
@@ -114,9 +120,10 @@ Partial Class RegisterPage
         Me.txtConPassword1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtConPassword1.Font = New System.Drawing.Font("Arial", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtConPassword1.ForeColor = System.Drawing.Color.Gray
-        Me.txtConPassword1.Location = New System.Drawing.Point(71, 300)
+        Me.txtConPassword1.Location = New System.Drawing.Point(53, 244)
+        Me.txtConPassword1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtConPassword1.Name = "txtConPassword1"
-        Me.txtConPassword1.Size = New System.Drawing.Size(355, 28)
+        Me.txtConPassword1.Size = New System.Drawing.Size(267, 24)
         Me.txtConPassword1.TabIndex = 7
         Me.txtConPassword1.TabStop = False
         Me.txtConPassword1.Text = "confirm your password"
@@ -126,9 +133,10 @@ Partial Class RegisterPage
         '
         Me.chkShow2.AutoSize = True
         Me.chkShow2.Font = New System.Drawing.Font("Arial", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkShow2.Location = New System.Drawing.Point(294, 346)
+        Me.chkShow2.Location = New System.Drawing.Point(220, 281)
+        Me.chkShow2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chkShow2.Name = "chkShow2"
-        Me.chkShow2.Size = New System.Drawing.Size(120, 20)
+        Me.chkShow2.Size = New System.Drawing.Size(108, 18)
         Me.chkShow2.TabIndex = 8
         Me.chkShow2.Text = "Show password"
         Me.chkShow2.UseVisualStyleBackColor = True
@@ -141,9 +149,10 @@ Partial Class RegisterPage
         Me.cbxAdminUser1.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxAdminUser1.FormattingEnabled = True
         Me.cbxAdminUser1.Items.AddRange(New Object() {"User", "Admin"})
-        Me.cbxAdminUser1.Location = New System.Drawing.Point(71, 385)
+        Me.cbxAdminUser1.Location = New System.Drawing.Point(53, 313)
+        Me.cbxAdminUser1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cbxAdminUser1.Name = "cbxAdminUser1"
-        Me.cbxAdminUser1.Size = New System.Drawing.Size(355, 27)
+        Me.cbxAdminUser1.Size = New System.Drawing.Size(267, 24)
         Me.cbxAdminUser1.TabIndex = 9
         '
         'txtEmail2
@@ -152,9 +161,10 @@ Partial Class RegisterPage
         Me.txtEmail2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtEmail2.Font = New System.Drawing.Font("Arial", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail2.ForeColor = System.Drawing.Color.Gray
-        Me.txtEmail2.Location = New System.Drawing.Point(71, 210)
+        Me.txtEmail2.Location = New System.Drawing.Point(53, 171)
+        Me.txtEmail2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtEmail2.Name = "txtEmail2"
-        Me.txtEmail2.Size = New System.Drawing.Size(355, 28)
+        Me.txtEmail2.Size = New System.Drawing.Size(267, 24)
         Me.txtEmail2.TabIndex = 10
         Me.txtEmail2.TabStop = False
         Me.txtEmail2.Text = "enter your email"
@@ -166,9 +176,10 @@ Partial Class RegisterPage
         Me.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRegister.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRegister.ForeColor = System.Drawing.Color.Maroon
-        Me.btnRegister.Location = New System.Drawing.Point(72, 455)
+        Me.btnRegister.Location = New System.Drawing.Point(54, 370)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(354, 43)
+        Me.btnRegister.Size = New System.Drawing.Size(266, 35)
         Me.btnRegister.TabIndex = 11
         Me.btnRegister.TabStop = False
         Me.btnRegister.Text = "Register Now"
@@ -178,9 +189,10 @@ Partial Class RegisterPage
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(106, 527)
+        Me.Label1.Location = New System.Drawing.Point(80, 428)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 17)
+        Me.Label1.Size = New System.Drawing.Size(146, 15)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "already have an account?"
         '
@@ -189,18 +201,19 @@ Partial Class RegisterPage
         Me.lblLoginNow.AutoSize = True
         Me.lblLoginNow.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLoginNow.ForeColor = System.Drawing.Color.Maroon
-        Me.lblLoginNow.Location = New System.Drawing.Point(299, 527)
+        Me.lblLoginNow.Location = New System.Drawing.Point(224, 428)
+        Me.lblLoginNow.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLoginNow.Name = "lblLoginNow"
-        Me.lblLoginNow.Size = New System.Drawing.Size(69, 17)
+        Me.lblLoginNow.Size = New System.Drawing.Size(60, 15)
         Me.lblLoginNow.TabIndex = 13
         Me.lblLoginNow.Text = "login now"
         '
         'RegisterPage
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(496, 584)
+        Me.ClientSize = New System.Drawing.Size(372, 474)
         Me.Controls.Add(Me.lblLoginNow)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnRegister)
@@ -213,6 +226,7 @@ Partial Class RegisterPage
         Me.Controls.Add(Me.lblLogin)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "RegisterPage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
