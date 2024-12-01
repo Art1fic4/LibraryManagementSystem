@@ -139,4 +139,19 @@ Public Class AdminDashboard
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
+
+    Private Sub btnManageBooks1_Click(sender As Object, e As EventArgs) Handles btnManageBooks1.Click
+        FormManageBooks.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnViewRecords1_Click(sender As Object, e As EventArgs) Handles btnViewRecords1.Click
+        ViewRecords.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnLMSDashboard1_Click(sender As Object, e As EventArgs) Handles btnLMSDashboard1.Click
+        LMSDASHBOARD.Show()
+        Me.Hide()
+    End Sub
 End Class

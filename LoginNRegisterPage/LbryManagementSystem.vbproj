@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -143,10 +158,22 @@
     <Compile Include="AdminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormManageBooks.Designer.vb">
+      <DependentUpon>FormManageBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormManageBooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormManageUsers.Designer.vb">
       <DependentUpon>FormManageUsers.vb</DependentUpon>
     </Compile>
     <Compile Include="FormManageUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LMSDASHBOARD.Designer.vb">
+      <DependentUpon>LMSDASHBOARD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LMSDASHBOARD.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -186,6 +213,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="VIewRecords.Designer.vb">
+      <DependentUpon>VIewRecords.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VIewRecords.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WelcomeStart.Designer.vb">
       <DependentUpon>WelcomeStart.vb</DependentUpon>
     </Compile>
@@ -197,8 +230,14 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormManageBooks.resx">
+      <DependentUpon>FormManageBooks.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormManageUsers.resx">
       <DependentUpon>FormManageUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LMSDASHBOARD.resx">
+      <DependentUpon>LMSDASHBOARD.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.vb</DependentUpon>
@@ -214,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterface.resx">
       <DependentUpon>UserInterface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIewRecords.resx">
+      <DependentUpon>VIewRecords.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeStart.resx">
       <DependentUpon>WelcomeStart.vb</DependentUpon>
@@ -255,6 +297,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UserProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vecteezy_illustration-of-a-list-of-books-neatly-arranged-documents_7396216.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

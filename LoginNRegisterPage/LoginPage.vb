@@ -178,7 +178,7 @@ Public Class LoginPage
 
             Dim TypeOfAccount As String = Convert.ToString(cmd.ExecuteScalar)
             If Not String.IsNullOrEmpty(TypeOfAccount) Then
-                MessageBox.Show("login successful")
+                MessageBox.Show("Login Successful")
 
                 Select Case TypeOfAccount
                     Case "User"
@@ -186,14 +186,14 @@ Public Class LoginPage
                     Case "Admin"
                         AdminDashboard.Show()
                     Case Else
-                        MessageBox.Show("Invalid Credentials")
+                        MessageBox.Show("Invalid Information")
 
                 End Select
 
 
                 Me.Hide()
             Else
-
+                MessageBox.Show("Invalid Information")
             End If
         Catch ex As Exception
             MsgBox("mysql error: " & ex.Message)

@@ -132,54 +132,135 @@ Public Class FormManageUsers
         Me.Close()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles userlist.CellContentClick
+        If e.RowIndex >= 0 Then
+            Dim selectedrow As DataGridViewRow = userlist.Rows(e.RowIndex)
+            emailbox.Text = selectedrow.Cells("Email").Value.ToString()
+            passbox.Text = selectedrow.Cells("Password").Value.ToString()
+            namebox.Text = selectedrow.Cells("Name").Value.ToString()
+            cbxUser1.SelectedItem = selectedrow.Cells("TypeOfAccount").Value.ToString()
+        End If
     End Sub
 
     Private Sub searchbut_Click(sender As Object, e As EventArgs) Handles searchbut.Click
-        Dim query As String = txtSearch.Text
-        Dim dt As DataTable = SearchUsers(query)
-
+        Dim searchQuery As String = txtSearch.Text
+        Dim dt As DataTable = SearchUsers(searchQuery)
         If dt.Rows.Count > 0 Then
-            DataGridView1.DataSource = dt
-            DataGridView1.Visible = True
+            userlist.DataSource = dt
+            MessageBox.Show("User Found")
+            userlist.Visible = True
         Else
-            MessageBox.Show("No results found for your query.")
+            MessageBox.Show("No results with that name.")
         End If
     End Sub
-    Private Function SearchUsers(query As String) As DataTable
+    Private Function SearchUsers(Name As String) As DataTable
         Dim dt As New DataTable()
-        Dim cmd As MySqlCommand
         Try
             con.Open()
-
-
-            Dim sqlQuery As String = "SELECT * FROM user WHERE Name LIKE @query"
-            cmd = New MySqlCommand(sqlQuery, con)
-            cmd.Parameters.AddWithValue("@query", "%" & query & "%")
-
-
-            Dim da As New MySqlDataAdapter(cmd)
-            da.Fill(dt)
+            Dim query As String = "SELECT * FROM user WHERE Name LIKE @Name"
+            Using cmd = New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@Name", "%" & Name & "%")
+                Using da As New MySqlDataAdapter(cmd)
+                    da.Fill(dt)
+                End Using
+            End Using
 
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         Finally
+            con.Close()
 
-            If con IsNot Nothing AndAlso con.State = ConnectionState.Open Then
-                con.Close()
-            End If
-
-
-            If cmd IsNot Nothing Then
-                cmd.Dispose()
-            End If
         End Try
 
         Return dt
     End Function
+
+    Private Sub Addbut_Click(sender As Object, e As EventArgs) Handles addbut.Click
+        If String.IsNullOrEmpty(emailbox.Text) OrElse String.IsNullOrEmpty(passbox.Text) OrElse String.IsNullOrEmpty(namebox.Text) OrElse cbxUser1.SelectedItem Is Nothing Then
+            MessageBox.Show("Please input all required information.")
+            Return
+        End If
+        Try
+            con.Open()
+            Dim query As String = "INSERT INTO user(`Email`,`Password`,`Name`,`TypeOfAccount`) VALUES ('" & emailbox.Text & "','" & passbox.Text & "','" & namebox.Text & "','" & cbxUser1.SelectedItem & "')"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@Email", emailbox.Text)
+                cmd.Parameters.AddWithValue("@Password", passbox.Text)
+                cmd.Parameters.AddWithValue("@Name", namebox.Text)
+                cmd.Parameters.AddWithValue("@TypeOfAccount", namebox.Text)
+                cmd.ExecuteNonQuery()
+            End Using
+            MessageBox.Show("User added succesfully!")
+        Catch ex As Exception
+            MessageBox.Show("Mysql error: " & ex.Message)
+        Finally
+            con.Close()
+
+        End Try
+    End Sub
+
+    Private Sub delbut_Click(sender As Object, e As EventArgs) Handles delbut.Click
+        If userlist.SelectedCells.Count = 0 Then
+            MessageBox.Show("Please select a user to delete from the list.")
+            Return
+        End If
+
+        Try
+            con.Open()
+            Dim query As String = "DELETE from user where email = @Email"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@Email", emailbox.Text)
+                cmd.ExecuteNonQuery()
+            End Using
+            MessageBox.Show("User Deleted succesfully!")
+        Catch ex As Exception
+            MessageBox.Show("Mysql error: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+    End Sub
+
+    Private Sub editbut_Click(sender As Object, e As EventArgs) Handles editbut.Click
+        If userlist.SelectedCells.Count = 0 Then
+            MessageBox.Show("Please select a user to edit from the list.")
+            Return
+        End If
+        Try
+            Dim selectedRow As DataGridViewRow = userlist.Rows(userlist.SelectedCells(0).RowIndex)
+            Dim selecteduserid As String = selectedRow.Cells("UserID").Value.ToString()
+
+            con.Open()
+            Dim query As String = "UPDATE user SET Name = @Name, TypeOfAccount = @TypeOfAccount, Password = @Password, Email = @Email Where UserID = @UserID "
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@Email", emailbox.Text)
+                cmd.Parameters.AddWithValue("@Password", passbox.Text)
+                cmd.Parameters.AddWithValue("@Name", namebox.Text)
+                cmd.Parameters.AddWithValue("@TypeOfAccount", cbxUser1.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@UserID", selecteduserid)
+                cmd.ExecuteNonQuery()
+
+            End Using
+            selectedRow.Cells("Name").Value = namebox.Text
+            selectedRow.Cells("TypeOfAccount").Value = cbxUser1.SelectedItem.ToString()
+            selectedRow.Cells("Password").Value = passbox.Text
+            selectedRow.Cells("Email").Value = emailbox.Text
+
+            MessageBox.Show("User edited successfully!")
+        Catch ex As Exception
+            MessageBox.Show("MySQL error: " & ex.Message)
+        Finally
+            con.Close()
+
+        End Try
+    End Sub
+
+    Private Sub clrbut_Click(sender As Object, e As EventArgs) Handles clrbut.Click
+        emailbox.Clear()
+        passbox.Clear()
+        namebox.Clear()
+
+        userlist.DataSource = Nothing
+        userlist.Rows.Clear()
+    End Sub
 End Class

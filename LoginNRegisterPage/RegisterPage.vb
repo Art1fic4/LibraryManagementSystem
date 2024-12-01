@@ -211,24 +211,38 @@ Public Class RegisterPage
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
-        con.Open()
+        If String.IsNullOrEmpty(txtEmail2.Text) OrElse String.IsNullOrEmpty(txtPassword2.Text) OrElse String.IsNullOrEmpty(txtName1.Text) OrElse cbxAdminUser1.SelectedItem Is Nothing Then
+            MessageBox.Show("Please fill in all required fields.")
+            Return
+        End If
 
+        If txtPassword2.Text <> txtConPassword1.Text Then
+            MessageBox.Show("Passwords do not match. Please try again.")
+            Return
+        End If
         Try
-            cmd.Connection = con
-            Dim query As New MySqlCommand("INSERT INTO user(`Email`,`Password`,`TypeofAccount`,`Name`) VALUES ('" & txtEmail2.Text & "','" & txtPassword2.Text & "','" & cbxAdminUser1.SelectedItem & "','" & txtName1.Text & "')", con)
-            cmd.ExecuteNonQuery()
-            MessageBox.Show("Registered Successfully")
-            con.Close()
-            txtName1.Clear()
-            txtEmail2.Clear()
-            txtPassword2.Clear()
-            txtConPassword1.Clear()
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+            con.Open()
+            Dim query As String = "INSERT INTO user(`Email`,`Password`,`TypeofAccount`,`Name`) VALUES (@Email, @Password, @TypeOfAccount, @Name)"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@Email", txtEmail2.Text)
+                cmd.Parameters.AddWithValue("@Password", txtPassword2.Text)
+                cmd.Parameters.AddWithValue("@TypeOfAccount", cbxAdminUser1.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@Name", txtName1.Text)
+                cmd.ExecuteNonQuery()
 
-        WelcomeStart.Show()
-        Me.Hide()
+
+                MessageBox.Show("Registered Successfully")
+                txtName1.Clear()
+                txtEmail2.Clear()
+                txtPassword2.Clear()
+                txtConPassword1.Clear()
+
+            End Using
+            WelcomeStart.Show()
+            Me.Hide()
+        Catch ex As Exception
+            MessageBox.Show("MySQL error: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub txtName1_TextChanged(sender As Object, e As EventArgs) Handles txtName1.TextChanged
