@@ -241,27 +241,31 @@ Public Class FormManageBooks
 
     Private Sub editbook_Click(sender As Object, e As EventArgs) Handles editbook.Click
         Try
-            If String.IsNullOrWhiteSpace(title.Text) OrElse String.IsNullOrWhiteSpace(author.Text) OrElse String.IsNullOrWhiteSpace(genre.Text) OrElse Not IsDate(pubyear.Text) OrElse Not Integer.TryParse(quantity.Text, Nothing) OrElse String.IsNullOrWhiteSpace(descbox.Text) OrElse coverimg.Image Is Nothing Then
+            If String.IsNullOrWhiteSpace(title.Text) OrElse
+                String.IsNullOrWhiteSpace(author.Text) OrElse
+                String.IsNullOrWhiteSpace(genre.Text) OrElse
+                Not IsDate(pubyear.Text) OrElse
+                Not Integer.TryParse(quantity.Text, Nothing) OrElse
+                String.IsNullOrWhiteSpace(descbox.Text) Then
                 MessageBox.Show("Please fill in all fields with valid information.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
 
             con.Open()
-            Dim query As String = "UPDATE books SET Title = @Title, Author = @Author, Genre = @Genre, " & "PublicationYear = @PublicationYear, Quantity = @Quantity, " & "Description = @Description, CoverImage = @CoverImage WHERE BookID = @BookID"
+            Dim query As String = "UPDATE books SET Title = @Title, Author = @Author, Genre = @Genre, " &
+                "PublicationYear = @PublicationYear, Quantity = @Quantity," &
+                "Description = @Description WHERE BookId = @BookId"
             Using cmd As New MySqlCommand(query, con)
-                cmd.Parameters.AddWithValue("@BookID", bookid.Text)
+                cmd.Parameters.AddWithValue("@BookId", bookid.Text)
                 cmd.Parameters.AddWithValue("@Title", title.Text)
                 cmd.Parameters.AddWithValue("@Author", author.Text)
                 cmd.Parameters.AddWithValue("@Genre", genre.Text)
-                cmd.Parameters.AddWithValue("@PublicationYear", DateTime.Parse(pubyear.Text))
+                cmd.Parameters.AddWithValue("@PublicationYear", pubyear.Value)
                 cmd.Parameters.AddWithValue("@Quantity", Integer.Parse(quantity.Text))
                 cmd.Parameters.AddWithValue("@Description", descbox.Text)
-                Dim MS As New MemoryStream()
-                coverimg.Image.Save(MS, coverimg.Image.RawFormat)
-                Dim cover As Byte() = MS.ToArray()
-                cmd.Parameters.AddWithValue("@CoverImage", cover)
                 cmd.ExecuteNonQuery()
             End Using
+
             MessageBox.Show("Book details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show("MySQL error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -293,6 +297,9 @@ Public Class FormManageBooks
         Finally
             con.Close()
         End Try
+        If dt.Rows.Count = 0 Then
+            MessageBox.Show("No books found with the given title.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
         booksgrid.DataSource = dt
     End Sub
 
@@ -300,5 +307,80 @@ Public Class FormManageBooks
 
     Private Sub refreshbut_Click(sender As Object, e As EventArgs) Handles refreshbut.Click
         BindBooksData()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            If String.IsNullOrWhiteSpace(title.Text) OrElse
+                String.IsNullOrWhiteSpace(author.Text) OrElse
+                String.IsNullOrWhiteSpace(genre.Text) OrElse
+                Not IsDate(pubyear.Text) OrElse
+                Not Integer.TryParse(quantity.Text, Nothing) OrElse
+                String.IsNullOrWhiteSpace(descbox.Text) Then
+                MessageBox.Show("Please fill in all fields with valid information.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            con.Open()
+            Dim query As String = "UPDATE books SET Title = @Title, Author = @Author, Genre = @Genre, " &
+                "PublicationYear = @PublicationYear, Quantity = @Quantity," &
+                "Description = @Description WHERE BookId = @BookId"
+            Using cmd As New MySqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@BookId", bookid.Text)
+                cmd.Parameters.AddWithValue("@Title", title.Text)
+                cmd.Parameters.AddWithValue("@Author", author.Text)
+                cmd.Parameters.AddWithValue("@Genre", genre.Text)
+                cmd.Parameters.AddWithValue("@PublicationYear", pubyear.Value)
+                cmd.Parameters.AddWithValue("@Quantity", Integer.Parse(quantity.Text))
+                cmd.Parameters.AddWithValue("@Description", descbox.Text)
+                cmd.ExecuteNonQuery()
+            End Using
+            If coverimg.Image IsNot Nothing Then
+                query = "UPDATE books SET CoverImage = @CoverImage Where BookId = BookId"
+                Using cmd As New MySqlCommand(query, con)
+                    Dim MS As New MemoryStream()
+                    coverimg.Image.Save(MS, coverimg.Image.RawFormat)
+                    Dim cover As Byte() = MS.ToArray()
+                    cmd.Parameters.AddWithValue("@CoverImage", cover)
+                    cmd.ExecuteNonQuery()
+                End Using
+            End If
+            MessageBox.Show("Book details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("MySQL error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub searchbuttontitle_Click(sender As Object, e As EventArgs) Handles searchbuttontitle.Click
+        Dim searchValue As String = titlebox.Text.Trim()
+        If String.IsNullOrWhiteSpace(searchValue) Then
+            MessageBox.Show("Please enter a title to search for.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+        BindBooksData(searchValue)
+    End Sub
+
+    Private Sub removebutton_Click(sender As Object, e As EventArgs) Handles removebutton.Click
+        Try
+            If booksgrid.SelectedRows.Count > 0 Then
+                Dim bookID As String = booksgrid.SelectedRows(0).Cells("BookId").Value.ToString()
+                con.Open()
+                Dim query As String = "DELETE FROM books WHERE BookId = @BookId"
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@BookID", bookID)
+                    cmd.ExecuteNonQuery()
+                End Using
+                MessageBox.Show("Book removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Please select a book to remove.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("MySQL error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+
     End Sub
 End Class

@@ -29,6 +29,9 @@ Partial Class FormManageBooks
         Me.TABS = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.editbook = New System.Windows.Forms.Button()
+        Me.searchbookid = New System.Windows.Forms.Button()
         Me.coverimg = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -50,16 +53,18 @@ Partial Class FormManageBooks
         Me.selectbut = New System.Windows.Forms.Button()
         Me.bookid = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.removebutton = New System.Windows.Forms.Button()
+        Me.searchbuttontitle = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.titlebox = New System.Windows.Forms.TextBox()
+        Me.refreshbut = New System.Windows.Forms.Button()
+        Me.booksgrid = New System.Windows.Forms.DataGridView()
         Me.BackWindow1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MinimizedWindow3 = New System.Windows.Forms.PictureBox()
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.searchbookid = New System.Windows.Forms.Button()
-        Me.editbook = New System.Windows.Forms.Button()
-        Me.booksgrid = New System.Windows.Forms.DataGridView()
-        Me.refreshbut = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.TABS.SuspendLayout()
@@ -69,12 +74,12 @@ Partial Class FormManageBooks
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.quantity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
+        CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -128,6 +133,7 @@ Partial Class FormManageBooks
         'Panel4
         '
         Me.Panel4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Controls.Add(Me.editbook)
         Me.Panel4.Controls.Add(Me.searchbookid)
         Me.Panel4.Controls.Add(Me.coverimg)
@@ -155,6 +161,42 @@ Partial Class FormManageBooks
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(881, 488)
         Me.Panel4.TabIndex = 17
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.SeaGreen
+        Me.Button1.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(376, 362)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(84, 52)
+        Me.Button1.TabIndex = 31
+        Me.Button1.Text = "Update Cover"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'editbook
+        '
+        Me.editbook.BackColor = System.Drawing.Color.Lime
+        Me.editbook.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.editbook.Location = New System.Drawing.Point(168, 362)
+        Me.editbook.Margin = New System.Windows.Forms.Padding(2)
+        Me.editbook.Name = "editbook"
+        Me.editbook.Size = New System.Drawing.Size(84, 52)
+        Me.editbook.TabIndex = 30
+        Me.editbook.Text = "Edit"
+        Me.editbook.UseVisualStyleBackColor = False
+        '
+        'searchbookid
+        '
+        Me.searchbookid.BackColor = System.Drawing.Color.DarkKhaki
+        Me.searchbookid.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.searchbookid.Location = New System.Drawing.Point(281, 66)
+        Me.searchbookid.Margin = New System.Windows.Forms.Padding(2)
+        Me.searchbookid.Name = "searchbookid"
+        Me.searchbookid.Size = New System.Drawing.Size(79, 28)
+        Me.searchbookid.TabIndex = 29
+        Me.searchbookid.Text = "Search"
+        Me.searchbookid.UseVisualStyleBackColor = False
         '
         'coverimg
         '
@@ -264,8 +306,8 @@ Partial Class FormManageBooks
         'addbook
         '
         Me.addbook.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.addbook.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addbook.Location = New System.Drawing.Point(45, 362)
+        Me.addbook.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addbook.Location = New System.Drawing.Point(60, 362)
         Me.addbook.Margin = New System.Windows.Forms.Padding(2)
         Me.addbook.Name = "addbook"
         Me.addbook.Size = New System.Drawing.Size(84, 52)
@@ -276,8 +318,8 @@ Partial Class FormManageBooks
         'clearbut
         '
         Me.clearbut.BackColor = System.Drawing.Color.Red
-        Me.clearbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbut.Location = New System.Drawing.Point(275, 362)
+        Me.clearbut.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbut.Location = New System.Drawing.Point(274, 362)
         Me.clearbut.Margin = New System.Windows.Forms.Padding(2)
         Me.clearbut.Name = "clearbut"
         Me.clearbut.Size = New System.Drawing.Size(84, 52)
@@ -372,6 +414,10 @@ Partial Class FormManageBooks
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.Chocolate
+        Me.TabPage3.Controls.Add(Me.removebutton)
+        Me.TabPage3.Controls.Add(Me.searchbuttontitle)
+        Me.TabPage3.Controls.Add(Me.Label9)
+        Me.TabPage3.Controls.Add(Me.titlebox)
         Me.TabPage3.Controls.Add(Me.refreshbut)
         Me.TabPage3.Controls.Add(Me.booksgrid)
         Me.TabPage3.ImageIndex = 2
@@ -381,6 +427,73 @@ Partial Class FormManageBooks
         Me.TabPage3.Size = New System.Drawing.Size(879, 458)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Book List"
+        '
+        'removebutton
+        '
+        Me.removebutton.BackColor = System.Drawing.Color.Gold
+        Me.removebutton.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.removebutton.Location = New System.Drawing.Point(136, 418)
+        Me.removebutton.Margin = New System.Windows.Forms.Padding(2)
+        Me.removebutton.Name = "removebutton"
+        Me.removebutton.Size = New System.Drawing.Size(88, 35)
+        Me.removebutton.TabIndex = 33
+        Me.removebutton.Text = "Remove"
+        Me.removebutton.UseVisualStyleBackColor = False
+        '
+        'searchbuttontitle
+        '
+        Me.searchbuttontitle.BackColor = System.Drawing.Color.DarkKhaki
+        Me.searchbuttontitle.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.searchbuttontitle.Location = New System.Drawing.Point(551, 420)
+        Me.searchbuttontitle.Margin = New System.Windows.Forms.Padding(2)
+        Me.searchbuttontitle.Name = "searchbuttontitle"
+        Me.searchbuttontitle.Size = New System.Drawing.Size(79, 28)
+        Me.searchbuttontitle.TabIndex = 32
+        Me.searchbuttontitle.Text = "Search"
+        Me.searchbuttontitle.UseVisualStyleBackColor = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(294, 422)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label9.Size = New System.Drawing.Size(50, 22)
+        Me.Label9.TabIndex = 31
+        Me.Label9.Text = "Title:"
+        '
+        'titlebox
+        '
+        Me.titlebox.Location = New System.Drawing.Point(348, 421)
+        Me.titlebox.Margin = New System.Windows.Forms.Padding(2)
+        Me.titlebox.Name = "titlebox"
+        Me.titlebox.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.titlebox.Size = New System.Drawing.Size(199, 27)
+        Me.titlebox.TabIndex = 30
+        '
+        'refreshbut
+        '
+        Me.refreshbut.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.refreshbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.refreshbut.Location = New System.Drawing.Point(25, 418)
+        Me.refreshbut.Margin = New System.Windows.Forms.Padding(2)
+        Me.refreshbut.Name = "refreshbut"
+        Me.refreshbut.Size = New System.Drawing.Size(88, 35)
+        Me.refreshbut.TabIndex = 17
+        Me.refreshbut.Text = "Refresh"
+        Me.refreshbut.UseVisualStyleBackColor = False
+        '
+        'booksgrid
+        '
+        Me.booksgrid.AllowUserToAddRows = False
+        Me.booksgrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.booksgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.booksgrid.Location = New System.Drawing.Point(25, 22)
+        Me.booksgrid.Name = "booksgrid"
+        Me.booksgrid.Size = New System.Drawing.Size(832, 391)
+        Me.booksgrid.TabIndex = 0
         '
         'BackWindow1
         '
@@ -450,51 +563,6 @@ Partial Class FormManageBooks
         Me.ImageList1.Images.SetKeyName(1, "book (2).png")
         Me.ImageList1.Images.SetKeyName(2, "book.png")
         '
-        'searchbookid
-        '
-        Me.searchbookid.BackColor = System.Drawing.Color.DarkKhaki
-        Me.searchbookid.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchbookid.Location = New System.Drawing.Point(281, 66)
-        Me.searchbookid.Margin = New System.Windows.Forms.Padding(2)
-        Me.searchbookid.Name = "searchbookid"
-        Me.searchbookid.Size = New System.Drawing.Size(79, 28)
-        Me.searchbookid.TabIndex = 29
-        Me.searchbookid.Text = "Search"
-        Me.searchbookid.UseVisualStyleBackColor = False
-        '
-        'editbook
-        '
-        Me.editbook.BackColor = System.Drawing.Color.Lime
-        Me.editbook.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.editbook.Location = New System.Drawing.Point(160, 362)
-        Me.editbook.Margin = New System.Windows.Forms.Padding(2)
-        Me.editbook.Name = "editbook"
-        Me.editbook.Size = New System.Drawing.Size(84, 52)
-        Me.editbook.TabIndex = 30
-        Me.editbook.Text = "Edit"
-        Me.editbook.UseVisualStyleBackColor = False
-        '
-        'booksgrid
-        '
-        Me.booksgrid.AllowUserToAddRows = False
-        Me.booksgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.booksgrid.Location = New System.Drawing.Point(25, 22)
-        Me.booksgrid.Name = "booksgrid"
-        Me.booksgrid.Size = New System.Drawing.Size(832, 391)
-        Me.booksgrid.TabIndex = 0
-        '
-        'refreshbut
-        '
-        Me.refreshbut.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.refreshbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.refreshbut.Location = New System.Drawing.Point(25, 418)
-        Me.refreshbut.Margin = New System.Windows.Forms.Padding(2)
-        Me.refreshbut.Name = "refreshbut"
-        Me.refreshbut.Size = New System.Drawing.Size(88, 35)
-        Me.refreshbut.TabIndex = 17
-        Me.refreshbut.Text = "Refresh"
-        Me.refreshbut.UseVisualStyleBackColor = False
-        '
         'FormManageBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -515,12 +583,13 @@ Partial Class FormManageBooks
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.quantity, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -558,7 +627,12 @@ Partial Class FormManageBooks
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents genre As TextBox
     Friend WithEvents searchbookid As Button
-    Friend WithEvents editbook As Button
     Friend WithEvents booksgrid As DataGridView
     Friend WithEvents refreshbut As Button
+    Friend WithEvents editbook As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents searchbuttontitle As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents titlebox As TextBox
+    Friend WithEvents removebutton As Button
 End Class
