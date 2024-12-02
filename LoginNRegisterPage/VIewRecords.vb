@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 
 Public Class ViewRecords
+
     ' Import the CreateRoundRectRgn function from the Windows API
     <DllImport("Gdi32.dll", EntryPoint:="CreateRoundRectRgn")>
     Private Shared Function CreateRoundRectRgn(
@@ -55,9 +56,7 @@ Public Class ViewRecords
         Me.Close()
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
-    End Sub
 
     Private Sub CloseWindow3_Click(sender As Object, e As EventArgs) Handles CloseWindow3.Click
         Me.Close()
@@ -130,4 +129,5 @@ Public Class ViewRecords
     Private Sub Panel_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
         drag = False
     End Sub
+
 End Class

@@ -133,49 +133,4 @@ Public Class UserInterface
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Dim searchQuery As String = TextBox1.Text.Trim()
-
-        If Not String.IsNullOrEmpty(searchQuery) Then
-            Searchdatabase(searchQuery)
-        Else
-            MessageBox.Show("Please enter a title")
-        End If
-
-    End Sub
-    Private Sub Searchdatabase(query As String)
-        Dim da As MySqlDataAdapter
-        Dim dt As New DataTable
-        Try
-            con.Open()
-
-            searchengine.Visible = True
-            cmd.CommandText = "SELECT * FROM user WHERE Password LIKE @query Or Email LIKE @query"
-            cmd.Connection = con
-            cmd.Parameters.AddWithValue("@query", "&" & query & "&")
-
-            da = New MySqlDataAdapter(cmd)
-            da.Fill(dt)
-
-            searchengine.DataSource = dt
-
-
-
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        Finally
-            con.Close()
-
-        End Try
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-        If TextBox1.Text = "" Then
-            searchengine.Visible = False
-        Else
-            searchengine.Visible = True
-        End If
-    End Sub
 End Class

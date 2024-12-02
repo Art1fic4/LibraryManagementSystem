@@ -59,12 +59,29 @@ Partial Class FormManageBooks
         Me.titlebox = New System.Windows.Forms.TextBox()
         Me.refreshbut = New System.Windows.Forms.Button()
         Me.booksgrid = New System.Windows.Forms.DataGridView()
+        Me.issuebooks = New System.Windows.Forms.TabPage()
+        Me.srchuserid = New System.Windows.Forms.Button()
+        Me.srchbookid = New System.Windows.Forms.Button()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.yesno = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.userfullname = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.NumericUpDown2userid = New System.Windows.Forms.NumericUpDown()
+        Me.booktitle = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.NumericUpDown1bookid = New System.Windows.Forms.NumericUpDown()
+        Me.returnbooks = New System.Windows.Forms.TabPage()
         Me.BackWindow1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MinimizedWindow3 = New System.Windows.Forms.PictureBox()
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.issuebutton = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.TABS.SuspendLayout()
@@ -75,6 +92,9 @@ Partial Class FormManageBooks
         CType(Me.quantity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.issuebooks.SuspendLayout()
+        CType(Me.NumericUpDown2userid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown1bookid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,6 +128,8 @@ Partial Class FormManageBooks
         '
         Me.TABS.Controls.Add(Me.TabPage1)
         Me.TABS.Controls.Add(Me.TabPage3)
+        Me.TABS.Controls.Add(Me.issuebooks)
+        Me.TABS.Controls.Add(Me.returnbooks)
         Me.TABS.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TABS.Location = New System.Drawing.Point(0, 64)
         Me.TABS.Name = "TABS"
@@ -203,7 +225,7 @@ Partial Class FormManageBooks
         Me.coverimg.BackColor = System.Drawing.Color.Transparent
         Me.coverimg.BackgroundImage = Global.LoginNRegisterPage.My.Resources.Resources.open_book
         Me.coverimg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.coverimg.Location = New System.Drawing.Point(612, 240)
+        Me.coverimg.Location = New System.Drawing.Point(598, 240)
         Me.coverimg.Name = "coverimg"
         Me.coverimg.Size = New System.Drawing.Size(140, 174)
         Me.coverimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -420,7 +442,7 @@ Partial Class FormManageBooks
         Me.TabPage3.Controls.Add(Me.titlebox)
         Me.TabPage3.Controls.Add(Me.refreshbut)
         Me.TabPage3.Controls.Add(Me.booksgrid)
-        Me.TabPage3.ImageIndex = 2
+        Me.TabPage3.ImageIndex = 1
         Me.TabPage3.Location = New System.Drawing.Point(4, 29)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
@@ -495,6 +517,199 @@ Partial Class FormManageBooks
         Me.booksgrid.Size = New System.Drawing.Size(832, 391)
         Me.booksgrid.TabIndex = 0
         '
+        'issuebooks
+        '
+        Me.issuebooks.BackColor = System.Drawing.Color.DarkKhaki
+        Me.issuebooks.Controls.Add(Me.issuebutton)
+        Me.issuebooks.Controls.Add(Me.srchuserid)
+        Me.issuebooks.Controls.Add(Me.srchbookid)
+        Me.issuebooks.Controls.Add(Me.Label17)
+        Me.issuebooks.Controls.Add(Me.Label16)
+        Me.issuebooks.Controls.Add(Me.DateTimePicker2)
+        Me.issuebooks.Controls.Add(Me.DateTimePicker1)
+        Me.issuebooks.Controls.Add(Me.yesno)
+        Me.issuebooks.Controls.Add(Me.Label14)
+        Me.issuebooks.Controls.Add(Me.userfullname)
+        Me.issuebooks.Controls.Add(Me.Label13)
+        Me.issuebooks.Controls.Add(Me.NumericUpDown2userid)
+        Me.issuebooks.Controls.Add(Me.booktitle)
+        Me.issuebooks.Controls.Add(Me.Label10)
+        Me.issuebooks.Controls.Add(Me.NumericUpDown1bookid)
+        Me.issuebooks.ImageIndex = 2
+        Me.issuebooks.Location = New System.Drawing.Point(4, 29)
+        Me.issuebooks.Name = "issuebooks"
+        Me.issuebooks.Padding = New System.Windows.Forms.Padding(3)
+        Me.issuebooks.Size = New System.Drawing.Size(879, 458)
+        Me.issuebooks.TabIndex = 3
+        Me.issuebooks.Text = "Issue"
+        '
+        'srchuserid
+        '
+        Me.srchuserid.BackColor = System.Drawing.Color.DarkTurquoise
+        Me.srchuserid.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.srchuserid.Location = New System.Drawing.Point(584, 134)
+        Me.srchuserid.Margin = New System.Windows.Forms.Padding(2)
+        Me.srchuserid.Name = "srchuserid"
+        Me.srchuserid.Size = New System.Drawing.Size(79, 28)
+        Me.srchuserid.TabIndex = 37
+        Me.srchuserid.Text = "Search"
+        Me.srchuserid.UseVisualStyleBackColor = False
+        '
+        'srchbookid
+        '
+        Me.srchbookid.BackColor = System.Drawing.Color.DarkTurquoise
+        Me.srchbookid.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.srchbookid.Location = New System.Drawing.Point(584, 49)
+        Me.srchbookid.Margin = New System.Windows.Forms.Padding(2)
+        Me.srchbookid.Name = "srchbookid"
+        Me.srchbookid.Size = New System.Drawing.Size(79, 28)
+        Me.srchbookid.TabIndex = 36
+        Me.srchbookid.Text = "Search"
+        Me.srchbookid.UseVisualStyleBackColor = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Arial", 15.25!)
+        Me.Label17.Location = New System.Drawing.Point(268, 329)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label17.Size = New System.Drawing.Size(129, 24)
+        Me.Label17.TabIndex = 35
+        Me.Label17.Text = "Return Date:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Arial", 15.25!)
+        Me.Label16.Location = New System.Drawing.Point(278, 266)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label16.Size = New System.Drawing.Size(118, 24)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "Issue Date:"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(402, 326)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(164, 27)
+        Me.DateTimePicker2.TabIndex = 33
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(401, 263)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(164, 27)
+        Me.DateTimePicker1.TabIndex = 32
+        '
+        'yesno
+        '
+        Me.yesno.AutoSize = True
+        Me.yesno.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.yesno.Location = New System.Drawing.Point(445, 211)
+        Me.yesno.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.yesno.Name = "yesno"
+        Me.yesno.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.yesno.Size = New System.Drawing.Size(76, 24)
+        Me.yesno.TabIndex = 31
+        Me.yesno.Text = "Yes/No"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial", 15.25!)
+        Me.Label14.Location = New System.Drawing.Point(285, 211)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label14.Size = New System.Drawing.Size(112, 24)
+        Me.Label14.TabIndex = 30
+        Me.Label14.Text = "Available?:"
+        '
+        'userfullname
+        '
+        Me.userfullname.AutoSize = True
+        Me.userfullname.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userfullname.ForeColor = System.Drawing.Color.Black
+        Me.userfullname.Location = New System.Drawing.Point(399, 161)
+        Me.userfullname.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.userfullname.Name = "userfullname"
+        Me.userfullname.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.userfullname.Size = New System.Drawing.Size(133, 18)
+        Me.userfullname.TabIndex = 29
+        Me.userfullname.Text = ">User Full Name<"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Arial", 15.25!)
+        Me.Label13.Location = New System.Drawing.Point(264, 134)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label13.Size = New System.Drawing.Size(132, 24)
+        Me.Label13.TabIndex = 28
+        Me.Label13.Text = "Input UserID:"
+        '
+        'NumericUpDown2userid
+        '
+        Me.NumericUpDown2userid.Location = New System.Drawing.Point(402, 131)
+        Me.NumericUpDown2userid.Name = "NumericUpDown2userid"
+        Me.NumericUpDown2userid.Size = New System.Drawing.Size(163, 27)
+        Me.NumericUpDown2userid.TabIndex = 27
+        '
+        'booktitle
+        '
+        Me.booktitle.AutoSize = True
+        Me.booktitle.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.booktitle.ForeColor = System.Drawing.Color.Black
+        Me.booktitle.Location = New System.Drawing.Point(399, 80)
+        Me.booktitle.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.booktitle.Name = "booktitle"
+        Me.booktitle.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.booktitle.Size = New System.Drawing.Size(95, 18)
+        Me.booktitle.TabIndex = 26
+        Me.booktitle.Text = ">Book Title<"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Arial", 15.25!)
+        Me.Label10.Location = New System.Drawing.Point(254, 53)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label10.Size = New System.Drawing.Size(142, 24)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Input Book ID:"
+        '
+        'NumericUpDown1bookid
+        '
+        Me.NumericUpDown1bookid.Location = New System.Drawing.Point(402, 50)
+        Me.NumericUpDown1bookid.Name = "NumericUpDown1bookid"
+        Me.NumericUpDown1bookid.Size = New System.Drawing.Size(163, 27)
+        Me.NumericUpDown1bookid.TabIndex = 24
+        '
+        'returnbooks
+        '
+        Me.returnbooks.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.returnbooks.ImageIndex = 3
+        Me.returnbooks.Location = New System.Drawing.Point(4, 29)
+        Me.returnbooks.Name = "returnbooks"
+        Me.returnbooks.Padding = New System.Windows.Forms.Padding(3)
+        Me.returnbooks.Size = New System.Drawing.Size(879, 458)
+        Me.returnbooks.TabIndex = 4
+        Me.returnbooks.Text = "Return"
+        '
         'BackWindow1
         '
         Me.BackWindow1.Image = Global.LoginNRegisterPage.My.Resources.Resources.BackWindow
@@ -560,8 +775,21 @@ Partial Class FormManageBooks
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "book (1).png")
-        Me.ImageList1.Images.SetKeyName(1, "book (2).png")
-        Me.ImageList1.Images.SetKeyName(2, "book.png")
+        Me.ImageList1.Images.SetKeyName(1, "book.png")
+        Me.ImageList1.Images.SetKeyName(2, "book (2).png")
+        Me.ImageList1.Images.SetKeyName(3, "journal.png")
+        '
+        'issuebutton
+        '
+        Me.issuebutton.BackColor = System.Drawing.Color.MediumSlateBlue
+        Me.issuebutton.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.issuebutton.Location = New System.Drawing.Point(401, 377)
+        Me.issuebutton.Margin = New System.Windows.Forms.Padding(2)
+        Me.issuebutton.Name = "issuebutton"
+        Me.issuebutton.Size = New System.Drawing.Size(164, 46)
+        Me.issuebutton.TabIndex = 38
+        Me.issuebutton.Text = "Issue"
+        Me.issuebutton.UseVisualStyleBackColor = False
         '
         'FormManageBooks
         '
@@ -585,6 +813,10 @@ Partial Class FormManageBooks
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         CType(Me.booksgrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.issuebooks.ResumeLayout(False)
+        Me.issuebooks.PerformLayout()
+        CType(Me.NumericUpDown2userid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown1bookid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -635,4 +867,21 @@ Partial Class FormManageBooks
     Friend WithEvents Label9 As Label
     Friend WithEvents titlebox As TextBox
     Friend WithEvents removebutton As Button
+    Friend WithEvents issuebooks As TabPage
+    Friend WithEvents returnbooks As TabPage
+    Friend WithEvents userfullname As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents NumericUpDown2userid As NumericUpDown
+    Friend WithEvents booktitle As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents NumericUpDown1bookid As NumericUpDown
+    Friend WithEvents yesno As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents srchuserid As Button
+    Friend WithEvents srchbookid As Button
+    Friend WithEvents issuebutton As Button
 End Class

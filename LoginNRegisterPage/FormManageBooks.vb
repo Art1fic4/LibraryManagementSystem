@@ -3,9 +3,12 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 Imports MySql.Data.MySqlClient
 Imports Mysqlx
+Imports Mysqlx.XDevAPI.Relational
 Imports Org.BouncyCastle.Asn1.Cmp
 
 Public Class FormManageBooks
+    Dim dt As New DataTable()
+
     ' Import the CreateRoundRectRgn function from the Windows API
     <DllImport("Gdi32.dll", EntryPoint:="CreateRoundRectRgn")>
     Private Shared Function CreateRoundRectRgn(
@@ -26,8 +29,9 @@ Public Class FormManageBooks
         Dim imagelist1 As New ImageList
 
         imagelist1.Images.Add(Image.FromFile("C:\Users\padil\Pictures\book (1).png"))
-        imagelist1.Images.Add(Image.FromFile("C:\Users\padil\Pictures\journal.png"))
         imagelist1.Images.Add(Image.FromFile("C:\Users\padil\Pictures\book.png"))
+        imagelist1.Images.Add(Image.FromFile("C:\Users\padil\Downloads\book (2).png"))
+        imagelist1.Images.Add(Image.FromFile("C:\Users\padil\Pictures\journal.png"))
         TABS.ImageList = imagelist1
 
 
@@ -274,7 +278,7 @@ Public Class FormManageBooks
         End Try
     End Sub
 
-    Private Sub BindBooksData(Optional Title As String = "")
+    Private Function BindBooksData(Optional Title As String = "") As DataTable
         Dim dt As New DataTable()
         Try
             con.Open()
@@ -301,7 +305,8 @@ Public Class FormManageBooks
             MessageBox.Show("No books found with the given title.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
         booksgrid.DataSource = dt
-    End Sub
+        Return dt
+    End Function
 
 
 
@@ -383,4 +388,110 @@ Public Class FormManageBooks
         End Try
 
     End Sub
+
+    Private Sub srchbookid_Click(sender As Object, e As EventArgs) Handles srchbookid.Click
+        Dim id As Integer = NumericUpDown1bookid.Value
+        Dim table As DataTable = BindBooksData()
+
+        Dim foundRows() As DataRow = table.Select("BookId = " & id)
+        If foundRows.Length > 0 Then
+            booktitle.Text = foundRows(0)("Title").ToString()
+            booktitle.ForeColor = Color.Black
+        Else
+            booktitle.Text = "This ID doesn't exist"
+            booktitle.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub srchuserid_Click(sender As Object, e As EventArgs) Handles srchuserid.Click
+        Dim id As Integer = NumericUpDown2userid.Value
+        Dim table As DataTable = SearchUsers()
+
+        Dim foundRows() As DataRow = table.Select("UserID = " & id)
+        If foundRows.Length > 0 Then
+            userfullname.Text = foundRows(0)("Name").ToString()
+            userfullname.ForeColor = Color.Black
+        Else
+            userfullname.Text = "This ID doesn't exist"
+            userfullname.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Function SearchUsers() As DataTable
+        Dim dt As New DataTable()
+        Try
+            con.Open()
+            Dim query As String = "SELECT UserID, Name FROM user"
+            Using cmd As New MySqlCommand(query, con)
+                Using da As New MySqlDataAdapter(cmd)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
+        Return dt
+    End Function
+
+    Private Sub issuebutton_Click(sender As Object, e As EventArgs) Handles issuebutton.Click
+        Dim circulation As New circulation
+        Dim bookId As Integer = NumericUpDown1bookid.Value
+        Dim userId As Integer = NumericUpDown2userid.Value
+        Dim issueDate As DateTime = DateTimePicker1.Value
+        Dim returnDate As DateTime = DateTimePicker2.Value
+        If circulation.IssueBook(bookId, userId, issueDate, returnDate) Then
+            MessageBox.Show("Book Issue Successfully")
+        Else
+            MessageBox.Show("Failed to issue book")
+        End If
+    End Sub
+
+    Public Class circulation
+        Public Function IssueBook(bookId As Integer, userId As Integer, issueDate As DateTime, returnDate As DateTime) As Boolean
+            Dim success As Boolean = False
+            Try
+                con.Open()
+                Dim query1 As String = "UPDATE books SET Quantity = Quantity - 1 WHERE BookId = @BookId AND Quantity > 0"
+                Dim query2 As String = "INSERT INTO circulationofbooks (BookId, UserId, IssueDate, ReturnDate) VALUES (@BookId, @UserId, @IssueDate, @ReturnDate)"
+                Dim query3 As String = "UPDATE books SET Available = 0 WHERE BookId = @BookId AND Quantity = 0"
+
+                Using transaction = con.BeginTransaction()
+                    Using cmd1 As New MySqlCommand(query1, con)
+                        cmd1.Parameters.AddWithValue("@BookId", bookId)
+                        cmd1.Transaction = transaction
+                        If cmd1.ExecuteNonQuery() > 0 Then
+                            Using cmd2 As New MySqlCommand(query2, con)
+                                cmd2.Parameters.AddWithValue("@BookId", bookId)
+                                cmd2.Parameters.AddWithValue("@UserId", userId)
+                                cmd2.Parameters.AddWithValue("@IssueDate", issueDate)
+                                cmd2.Parameters.AddWithValue("@ReturnDate", returnDate)
+                                cmd2.Transaction = transaction
+                                If cmd2.ExecuteNonQuery() > 0 Then
+                                    Using cmd3 As New MySqlCommand(query3, con)
+                                        cmd3.Parameters.AddWithValue("@BookId", bookId)
+                                        cmd3.Transaction = transaction
+                                        cmd3.ExecuteNonQuery() ' Ensure availability is updated if needed
+                                    End Using
+                                    transaction.Commit()
+                                    success = True
+                                Else
+                                    transaction.Rollback()
+                                End If
+                            End Using
+                        Else
+                            transaction.Rollback()
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message)
+            Finally
+                con.Close()
+            End Try
+            Return success
+        End Function
+
+    End Class
 End Class

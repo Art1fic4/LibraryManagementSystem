@@ -27,21 +27,8 @@ Partial Class ViewRecords
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.searchbut = New System.Windows.Forms.Button()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.record = New System.Windows.Forms.Label()
         Me.BackWindow1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
@@ -106,187 +93,37 @@ Partial Class ViewRecords
         'Panel3
         '
         Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Panel3.Controls.Add(Me.Button3)
-        Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Controls.Add(Me.DataGridView1)
-        Me.Panel3.Controls.Add(Me.TextBox5)
-        Me.Panel3.Controls.Add(Me.TextBox4)
-        Me.Panel3.Controls.Add(Me.TextBox3)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.searchbut)
-        Me.Panel3.Controls.Add(Me.txtSearch)
-        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Controls.Add(Me.record)
         Me.Panel3.Location = New System.Drawing.Point(56, 32)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(875, 488)
         Me.Panel3.TabIndex = 16
         '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(628, 401)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(159, 30)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "Delete" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(419, 401)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(159, 30)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "Display"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(356, 35)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(109, 22)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Books List"
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(360, 59)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 53)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(489, 318)
+        Me.DataGridView1.Size = New System.Drawing.Size(818, 435)
         Me.DataGridView1.TabIndex = 12
         '
-        'TextBox5
+        'record
         '
-        Me.TextBox5.Location = New System.Drawing.Point(40, 361)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox5.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox5.TabIndex = 11
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(40, 312)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox4.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox4.TabIndex = 10
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(40, 265)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox3.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox3.TabIndex = 9
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(39, 219)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox2.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox2.TabIndex = 8
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(40, 345)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(73, 16)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Book Title:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(40, 297)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(159, 16)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "No# of Books Borrowed:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(40, 249)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(151, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Borrowed Book Status:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(39, 204)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(75, 16)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Username:"
-        '
-        'searchbut
-        '
-        Me.searchbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchbut.Location = New System.Drawing.Point(38, 124)
-        Me.searchbut.Margin = New System.Windows.Forms.Padding(2)
-        Me.searchbut.Name = "searchbut"
-        Me.searchbut.Size = New System.Drawing.Size(79, 28)
-        Me.searchbut.TabIndex = 3
-        Me.searchbut.Text = "Search"
-        Me.searchbut.UseVisualStyleBackColor = True
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Location = New System.Drawing.Point(38, 89)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtSearch.Size = New System.Drawing.Size(200, 20)
-        Me.txtSearch.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(38, 61)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(117, 19)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "ViewRecords:"
+        Me.record.AutoSize = True
+        Me.record.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.record.Location = New System.Drawing.Point(354, 25)
+        Me.record.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.record.Name = "record"
+        Me.record.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.record.Size = New System.Drawing.Size(105, 26)
+        Me.record.TabIndex = 1
+        Me.record.Text = "Records:"
         '
         'BackWindow1
         '
@@ -339,21 +176,8 @@ Partial Class ViewRecords
     Friend WithEvents MaximizeWindow3 As PictureBox
     Friend WithEvents CloseWindow3 As PictureBox
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents searchbut As Button
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents record As Label
     Friend WithEvents BackWindow1 As PictureBox
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
