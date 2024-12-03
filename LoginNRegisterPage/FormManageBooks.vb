@@ -542,5 +542,67 @@ Public Class FormManageBooks
             Return success
         End Function
 
+        Public Function ReturnBook(bookId As Integer, userId As Integer) As Boolean
+            Dim success As Boolean = False
+            Try
+                con.Open()
+                Dim queryDelete As String = "DELETE FROM circulationofbooks WHERE BookId = @BookId AND UserId = @UserId"
+                Dim queryUpdate As String = "UPDATE books SET Quantity = Quantity + 1 WHERE BookId = @BookId"
+
+                Using transaction = con.BeginTransaction()
+                    Using cmdDelete As New MySqlCommand(queryDelete, con)
+                        cmdDelete.Parameters.AddWithValue("@BookId", bookId)
+                        cmdDelete.Parameters.AddWithValue("@UserId", userId)
+                        cmdDelete.Transaction = transaction
+                        If cmdDelete.ExecuteNonQuery() > 0 Then
+
+                            Using cmdUpdate As New MySqlCommand(queryUpdate, con)
+                                cmdUpdate.Parameters.AddWithValue("@BookId", bookId)
+                                cmdUpdate.Transaction = transaction
+                                If cmdUpdate.ExecuteNonQuery() > 0 Then
+                                    transaction.Commit()
+                                    success = True
+                                Else
+                                    transaction.Rollback()
+                                End If
+                            End Using
+                        Else transaction.Rollback()
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message)
+            Finally
+                con.Close()
+            End Try
+            Return success
+        End Function
+
     End Class
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles refreshdataissuelist.Click
+        LoadIssuedBooks()
+    End Sub
+
+    Private Sub Issuelist_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Issuelist.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = Issuelist.Rows(e.RowIndex)
+            bookidbox.Text = row.Cells("BookId").Value.ToString()
+            useridbox.Text = row.Cells("UserId").Value.ToString()
+            issuedatebox.Text = row.Cells("IssueDate").Value.ToString()
+            returndatebox.Text = row.Cells("ReturnDate").Value.ToString()
+        End If
+    End Sub
+
+    Private Sub returnbookbut_Click(sender As Object, e As EventArgs) Handles returnbookbut.Click
+        Dim circulation As New circulation
+        Dim bookId As Integer = Integer.Parse(bookidbox.Text)
+        Dim userId As Integer = Integer.Parse(useridbox.Text)
+        If circulation.ReturnBook(bookId, userId) Then
+            MessageBox.Show("Book returned successfully.")
+            LoadIssuedBooks()
+        Else
+            MessageBox.Show("Failed to return book.")
+        End If
+    End Sub
 End Class
