@@ -60,6 +60,7 @@ Partial Class FormManageBooks
         Me.refreshbut = New System.Windows.Forms.Button()
         Me.booksgrid = New System.Windows.Forms.DataGridView()
         Me.issuebooks = New System.Windows.Forms.TabPage()
+        Me.issuebutton = New System.Windows.Forms.Button()
         Me.srchuserid = New System.Windows.Forms.Button()
         Me.srchbookid = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -81,7 +82,18 @@ Partial Class FormManageBooks
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.issuebutton = New System.Windows.Forms.Button()
+        Me.label19 = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.emailbox = New System.Windows.Forms.TextBox()
+        Me.passbox = New System.Windows.Forms.TextBox()
+        Me.namebox = New System.Windows.Forms.TextBox()
+        Me.Issuelist = New System.Windows.Forms.DataGridView()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.clrbut = New System.Windows.Forms.Button()
+        Me.label20 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.TABS.SuspendLayout()
@@ -95,11 +107,14 @@ Partial Class FormManageBooks
         Me.issuebooks.SuspendLayout()
         CType(Me.NumericUpDown2userid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1bookid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.returnbooks.SuspendLayout()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Issuelist, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
@@ -543,6 +558,18 @@ Partial Class FormManageBooks
         Me.issuebooks.TabIndex = 3
         Me.issuebooks.Text = "Issue"
         '
+        'issuebutton
+        '
+        Me.issuebutton.BackColor = System.Drawing.Color.MediumSlateBlue
+        Me.issuebutton.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.issuebutton.Location = New System.Drawing.Point(401, 377)
+        Me.issuebutton.Margin = New System.Windows.Forms.Padding(2)
+        Me.issuebutton.Name = "issuebutton"
+        Me.issuebutton.Size = New System.Drawing.Size(164, 46)
+        Me.issuebutton.TabIndex = 38
+        Me.issuebutton.Text = "Issue"
+        Me.issuebutton.UseVisualStyleBackColor = False
+        '
         'srchuserid
         '
         Me.srchuserid.BackColor = System.Drawing.Color.DarkTurquoise
@@ -702,6 +729,7 @@ Partial Class FormManageBooks
         'returnbooks
         '
         Me.returnbooks.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.returnbooks.Controls.Add(Me.Panel5)
         Me.returnbooks.ImageIndex = 3
         Me.returnbooks.Location = New System.Drawing.Point(4, 29)
         Me.returnbooks.Name = "returnbooks"
@@ -779,17 +807,148 @@ Partial Class FormManageBooks
         Me.ImageList1.Images.SetKeyName(2, "book (2).png")
         Me.ImageList1.Images.SetKeyName(3, "journal.png")
         '
-        'issuebutton
+        'label19
         '
-        Me.issuebutton.BackColor = System.Drawing.Color.MediumSlateBlue
-        Me.issuebutton.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.issuebutton.Location = New System.Drawing.Point(401, 377)
-        Me.issuebutton.Margin = New System.Windows.Forms.Padding(2)
-        Me.issuebutton.Name = "issuebutton"
-        Me.issuebutton.Size = New System.Drawing.Size(164, 46)
-        Me.issuebutton.TabIndex = 38
-        Me.issuebutton.Text = "Issue"
-        Me.issuebutton.UseVisualStyleBackColor = False
+        Me.label19.AutoSize = True
+        Me.label19.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label19.Location = New System.Drawing.Point(38, 98)
+        Me.label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.label19.Name = "label19"
+        Me.label19.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.label19.Size = New System.Drawing.Size(70, 19)
+        Me.label19.TabIndex = 1
+        Me.label19.Text = "BookId:"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Enabled = False
+        Me.txtSearch.Location = New System.Drawing.Point(38, 119)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.txtSearch.Size = New System.Drawing.Size(200, 27)
+        Me.txtSearch.TabIndex = 2
+        '
+        'emailbox
+        '
+        Me.emailbox.Enabled = False
+        Me.emailbox.Location = New System.Drawing.Point(38, 180)
+        Me.emailbox.Margin = New System.Windows.Forms.Padding(2)
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.emailbox.Size = New System.Drawing.Size(200, 27)
+        Me.emailbox.TabIndex = 8
+        '
+        'passbox
+        '
+        Me.passbox.Enabled = False
+        Me.passbox.Location = New System.Drawing.Point(39, 236)
+        Me.passbox.Margin = New System.Windows.Forms.Padding(2)
+        Me.passbox.Name = "passbox"
+        Me.passbox.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.passbox.Size = New System.Drawing.Size(200, 27)
+        Me.passbox.TabIndex = 9
+        '
+        'namebox
+        '
+        Me.namebox.Enabled = False
+        Me.namebox.Location = New System.Drawing.Point(39, 299)
+        Me.namebox.Margin = New System.Windows.Forms.Padding(2)
+        Me.namebox.Name = "namebox"
+        Me.namebox.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.namebox.Size = New System.Drawing.Size(200, 27)
+        Me.namebox.TabIndex = 10
+        '
+        'Issuelist
+        '
+        Me.Issuelist.AllowUserToAddRows = False
+        Me.Issuelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Issuelist.Location = New System.Drawing.Point(360, 59)
+        Me.Issuelist.Margin = New System.Windows.Forms.Padding(2)
+        Me.Issuelist.Name = "Issuelist"
+        Me.Issuelist.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Issuelist.RowHeadersWidth = 51
+        Me.Issuelist.RowTemplate.Height = 24
+        Me.Issuelist.Size = New System.Drawing.Size(457, 377)
+        Me.Issuelist.TabIndex = 12
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(356, 35)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(137, 22)
+        Me.Label11.TabIndex = 13
+        Me.Label11.Text = "Issued Books"
+        '
+        'clrbut
+        '
+        Me.clrbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clrbut.Location = New System.Drawing.Point(56, 366)
+        Me.clrbut.Margin = New System.Windows.Forms.Padding(2)
+        Me.clrbut.Name = "clrbut"
+        Me.clrbut.Size = New System.Drawing.Size(159, 30)
+        Me.clrbut.TabIndex = 14
+        Me.clrbut.Text = "Return Book"
+        Me.clrbut.UseVisualStyleBackColor = True
+        '
+        'label20
+        '
+        Me.label20.AutoSize = True
+        Me.label20.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label20.Location = New System.Drawing.Point(38, 159)
+        Me.label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.label20.Name = "label20"
+        Me.label20.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.label20.Size = New System.Drawing.Size(67, 19)
+        Me.label20.TabIndex = 18
+        Me.label20.Text = "UserID:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(38, 215)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label15.Size = New System.Drawing.Size(91, 19)
+        Me.Label15.TabIndex = 19
+        Me.Label15.Text = "IssueDate:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(38, 278)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label18.Size = New System.Drawing.Size(102, 19)
+        Me.Label18.TabIndex = 20
+        Me.Label18.Text = "ReturnDate:"
+        '
+        'Panel5
+        '
+        Me.Panel5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel5.Controls.Add(Me.Label18)
+        Me.Panel5.Controls.Add(Me.Label15)
+        Me.Panel5.Controls.Add(Me.label20)
+        Me.Panel5.Controls.Add(Me.clrbut)
+        Me.Panel5.Controls.Add(Me.Label11)
+        Me.Panel5.Controls.Add(Me.Issuelist)
+        Me.Panel5.Controls.Add(Me.namebox)
+        Me.Panel5.Controls.Add(Me.passbox)
+        Me.Panel5.Controls.Add(Me.emailbox)
+        Me.Panel5.Controls.Add(Me.txtSearch)
+        Me.Panel5.Controls.Add(Me.label19)
+        Me.Panel5.Location = New System.Drawing.Point(-1, -15)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(881, 488)
+        Me.Panel5.TabIndex = 17
         '
         'FormManageBooks
         '
@@ -817,11 +976,15 @@ Partial Class FormManageBooks
         Me.issuebooks.PerformLayout()
         CType(Me.NumericUpDown2userid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1bookid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.returnbooks.ResumeLayout(False)
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Issuelist, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -884,4 +1047,16 @@ Partial Class FormManageBooks
     Friend WithEvents srchuserid As Button
     Friend WithEvents srchbookid As Button
     Friend WithEvents issuebutton As Button
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents label20 As Label
+    Friend WithEvents clrbut As Button
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Issuelist As DataGridView
+    Friend WithEvents namebox As TextBox
+    Friend WithEvents passbox As TextBox
+    Friend WithEvents emailbox As TextBox
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents label19 As Label
 End Class

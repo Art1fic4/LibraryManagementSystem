@@ -1,6 +1,7 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
 Imports System.IO
 Imports System.Runtime.InteropServices
+Imports System.Transactions
 Imports MySql.Data.MySqlClient
 Imports Mysqlx
 Imports Mysqlx.XDevAPI.Relational
@@ -434,6 +435,21 @@ Public Class FormManageBooks
         End Try
         Return dt
     End Function
+    Public Sub LoadIssuedBooks()
+        Try
+            con.Open()
+            Dim query As String = "SELECT * FROM circulationofbooks"
+            Using da As New MySqlDataAdapter(query, con)
+                Dim dt As New DataTable()
+                da.Fill(dt)
+                Issuelist.DataSource = dt
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
 
     Private Sub issuebutton_Click(sender As Object, e As EventArgs) Handles issuebutton.Click
         Dim circulation As New circulation
@@ -443,9 +459,11 @@ Public Class FormManageBooks
         Dim returnDate As DateTime = DateTimePicker2.Value
         If circulation.IssueBook(bookId, userId, issueDate, returnDate) Then
             MessageBox.Show("Book Issue Successfully")
-        Else
-            MessageBox.Show("Failed to issue book")
         End If
+
+
+
+        LoadIssuedBooks()
     End Sub
 
     Public Class circulation
@@ -453,9 +471,37 @@ Public Class FormManageBooks
             Dim success As Boolean = False
             Try
                 con.Open()
+                Dim query4 As String = "SELECT Quantity FROM books WHERE BookId = @BookId"
+                Dim query0 As String = "SELECT COUNT(*) FROM circulationofbooks WHERE BookId = @BookId AND UserId = @UserId"
                 Dim query1 As String = "UPDATE books SET Quantity = Quantity - 1 WHERE BookId = @BookId AND Quantity > 0"
                 Dim query2 As String = "INSERT INTO circulationofbooks (BookId, UserId, IssueDate, ReturnDate) VALUES (@BookId, @UserId, @IssueDate, @ReturnDate)"
-                Dim query3 As String = "UPDATE books SET Available = 0 WHERE BookId = @BookId AND Quantity = 0"
+                Dim query3 As String = "UPDATE books SET Quantity = 0 WHERE BookId = @BookId AND Quantity = 0"
+
+                Using cmdcheck As New MySqlCommand(query0, con)
+                    cmdcheck.Parameters.AddWithValue("@BookId", bookId)
+                    cmdcheck.Parameters.AddWithValue("@UserId", userId)
+                    Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
+                    If count > 0 Then
+                        MessageBox.Show("You have Already Issued this book")
+                        con.Close()
+                        Return False
+                    End If
+                End Using
+
+                Dim checkQuery As String = "SELECT Quantity FROM books WHERE BookId = @BookId"
+                Using cmdCheckAvailability As New MySqlCommand(checkQuery, con)
+                    cmdCheckAvailability.Parameters.AddWithValue("@BookId", bookId)
+                    Dim availableQuantity As Integer = Convert.ToInt32(cmdCheckAvailability.ExecuteScalar())
+                    If availableQuantity = 0 Then
+                        MessageBox.Show("Not Available")
+
+                        con.Close()
+                    Return False
+                    End If
+                End Using
+
+
+
 
                 Using transaction = con.BeginTransaction()
                     Using cmd1 As New MySqlCommand(query1, con)
@@ -473,7 +519,10 @@ Public Class FormManageBooks
                                         cmd3.Parameters.AddWithValue("@BookId", bookId)
                                         cmd3.Transaction = transaction
                                         cmd3.ExecuteNonQuery() ' Ensure availability is updated if needed
+
+
                                     End Using
+
                                     transaction.Commit()
                                     success = True
                                 Else
