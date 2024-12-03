@@ -145,11 +145,6 @@ Public Class AdminDashboard
         Me.Hide()
     End Sub
 
-    Private Sub btnViewRecords1_Click(sender As Object, e As EventArgs) Handles btnViewRecords1.Click
-        ViewRecords.Show()
-        Me.Hide()
-    End Sub
-
     Private Sub btnLMSDashboard1_Click(sender As Object, e As EventArgs) Handles btnLMSDashboard1.Click
         LMSDASHBOARD.Show()
         Me.Hide()

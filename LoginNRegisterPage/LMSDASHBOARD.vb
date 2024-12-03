@@ -1,4 +1,6 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class LMSDASHBOARD
     ' Import the CreateRoundRectRgn function from the Windows API
@@ -18,6 +20,29 @@ Public Class LMSDASHBOARD
     Private mouseY As Integer
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim connectionString As String = "server=localhost;username=root;password=12345678;database=lmsdb"
+        Dim usersQuery As String = "SELECT COUNT(*) FROM user_table"
+        Dim booksQuery As String = "SELECT COUNT(*) FROM books_table"
+        Dim circulationQuery As String = "SELECT COUNT(*) FROM circulationofbooks_table"
+
+        Dim usersCount As Integer = 0
+        Dim booksCount As Integer = 0
+        Dim circulationCount As Integer = 0
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+            Using command As New SqlCommand(usersQuery, connection)
+                usersCount = Convert.ToInt32(command.ExecuteScalar())
+            End Using
+            Using command As New SqlCommand(booksQuery, connection)
+                booksCount = Convert.ToInt32(command.ExecuteScalar())
+            End Using
+            Using command As New SqlCommand(circulationQuery, connection)
+                circulationCount = Convert.ToInt32(command.ExecuteScalar())
+            End Using
+        End Using
+        Guna2HtmlLabel1.Text = usersCount.ToString()
+        Guna2HtmlLabel4.Text = booksCount.ToString()
+        Guna2HtmlLabel6.Text = circulationCount.ToString()
         ' Remove the default title bar
         ' Me.FormBorderStyle = FormBorderStyle.None
 
@@ -44,18 +69,19 @@ Public Class LMSDASHBOARD
         AddHandler Panel1.MouseDown, AddressOf Panel_MouseDown
         AddHandler Panel1.MouseMove, AddressOf Panel_MouseMove
         AddHandler Panel1.MouseUp, AddressOf Panel_MouseUp
-
         AddHandler Panel2.MouseDown, AddressOf Panel_MouseDown
         AddHandler Panel2.MouseMove, AddressOf Panel_MouseMove
         AddHandler Panel2.MouseUp, AddressOf Panel_MouseUp
     End Sub
+
+
 
     Private Sub BackWindow1_Click(sender As Object, e As EventArgs) Handles BackWindow1.Click
         AdminDashboard.Show()
         Me.Close()
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -130,4 +156,6 @@ Public Class LMSDASHBOARD
     Private Sub Panel_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
         drag = False
     End Sub
+
+
 End Class

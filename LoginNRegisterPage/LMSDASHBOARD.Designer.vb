@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class LMSDASHBOARD
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,229 +20,60 @@ Partial Class LMSDASHBOARD
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.searchbut = New System.Windows.Forms.Button()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Dim ChartFont9 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim ChartFont10 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim ChartFont11 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim ChartFont12 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim Grid4 As Guna.Charts.WinForms.Grid = New Guna.Charts.WinForms.Grid()
+        Dim Tick4 As Guna.Charts.WinForms.Tick = New Guna.Charts.WinForms.Tick()
+        Dim ChartFont13 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim Grid5 As Guna.Charts.WinForms.Grid = New Guna.Charts.WinForms.Grid()
+        Dim Tick5 As Guna.Charts.WinForms.Tick = New Guna.Charts.WinForms.Tick()
+        Dim ChartFont14 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim Grid6 As Guna.Charts.WinForms.Grid = New Guna.Charts.WinForms.Grid()
+        Dim PointLabel2 As Guna.Charts.WinForms.PointLabel = New Guna.Charts.WinForms.PointLabel()
+        Dim ChartFont15 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
+        Dim Tick6 As Guna.Charts.WinForms.Tick = New Guna.Charts.WinForms.Tick()
+        Dim ChartFont16 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BackWindow1 = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MinimizedWindow3 = New System.Windows.Forms.PictureBox()
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
-        Me.Panel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GunaChart1 = New Guna.Charts.WinForms.GunaChart()
+        Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Guna2CustomGradientPanel3 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.userdash = New Guna.Charts.WinForms.GunaLineDataset()
+        Me.Booksdash = New Guna.Charts.WinForms.GunaLineDataset()
+        Me.circulationdash = New Guna.Charts.WinForms.GunaLineDataset()
         Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2CustomGradientPanel1.SuspendLayout()
+        Me.Guna2CustomGradientPanel2.SuspendLayout()
+        Me.Guna2CustomGradientPanel3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Panel3
-        '
-        Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Panel3.Controls.Add(Me.Button3)
-        Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Controls.Add(Me.DataGridView1)
-        Me.Panel3.Controls.Add(Me.TextBox5)
-        Me.Panel3.Controls.Add(Me.TextBox4)
-        Me.Panel3.Controls.Add(Me.TextBox3)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.searchbut)
-        Me.Panel3.Controls.Add(Me.txtSearch)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(88, 6)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(881, 488)
-        Me.Panel3.TabIndex = 16
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(628, 401)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(159, 30)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "Delete" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(419, 401)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(159, 30)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "Display"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(360, 18)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(109, 22)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Books List"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(360, 59)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(489, 318)
-        Me.DataGridView1.TabIndex = 12
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(40, 361)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox5.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox5.TabIndex = 11
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(40, 312)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox4.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox4.TabIndex = 10
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(40, 265)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox3.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox3.TabIndex = 9
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(39, 219)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox2.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox2.TabIndex = 8
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(40, 345)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(73, 16)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Book Title:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(40, 297)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(159, 16)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "No# of Books Borrowed:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(40, 249)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(151, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Borrowed Book Status:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(39, 204)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(75, 16)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Username:"
-        '
-        'searchbut
-        '
-        Me.searchbut.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchbut.Location = New System.Drawing.Point(38, 124)
-        Me.searchbut.Margin = New System.Windows.Forms.Padding(2)
-        Me.searchbut.Name = "searchbut"
-        Me.searchbut.Size = New System.Drawing.Size(79, 28)
-        Me.searchbut.TabIndex = 3
-        Me.searchbut.Text = "Search"
-        Me.searchbut.UseVisualStyleBackColor = True
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Location = New System.Drawing.Point(38, 89)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtSearch.Size = New System.Drawing.Size(200, 20)
-        Me.txtSearch.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(38, 61)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(158, 19)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "LMS DASHBOARD:"
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Controls.Add(Me.Guna2CustomGradientPanel2)
+        Me.Panel2.Controls.Add(Me.Guna2CustomGradientPanel3)
+        Me.Panel2.Controls.Add(Me.Guna2CustomGradientPanel1)
+        Me.Panel2.Controls.Add(Me.GunaChart1)
         Me.Panel2.Controls.Add(Me.BackWindow1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
@@ -250,6 +81,17 @@ Partial Class LMSDASHBOARD
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1001, 500)
         Me.Panel2.TabIndex = 5
+        '
+        'BackWindow1
+        '
+        Me.BackWindow1.Image = Global.LoginNRegisterPage.My.Resources.Resources.BackWindow
+        Me.BackWindow1.Location = New System.Drawing.Point(4, 4)
+        Me.BackWindow1.Margin = New System.Windows.Forms.Padding(2)
+        Me.BackWindow1.Name = "BackWindow1"
+        Me.BackWindow1.Size = New System.Drawing.Size(50, 50)
+        Me.BackWindow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.BackWindow1.TabIndex = 0
+        Me.BackWindow1.TabStop = False
         '
         'Panel1
         '
@@ -263,17 +105,6 @@ Partial Class LMSDASHBOARD
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1001, 47)
         Me.Panel1.TabIndex = 4
-        '
-        'BackWindow1
-        '
-        Me.BackWindow1.Image = Global.LoginNRegisterPage.My.Resources.Resources.BackWindow
-        Me.BackWindow1.Location = New System.Drawing.Point(4, 4)
-        Me.BackWindow1.Margin = New System.Windows.Forms.Padding(2)
-        Me.BackWindow1.Name = "BackWindow1"
-        Me.BackWindow1.Size = New System.Drawing.Size(50, 50)
-        Me.BackWindow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.BackWindow1.TabIndex = 0
-        Me.BackWindow1.TabStop = False
         '
         'MinimizedWindow3
         '
@@ -311,6 +142,159 @@ Partial Class LMSDASHBOARD
         Me.CloseWindow3.TabIndex = 5
         Me.CloseWindow3.TabStop = False
         '
+        'GunaChart1
+        '
+        Me.GunaChart1.BackColor = System.Drawing.Color.Transparent
+        Me.GunaChart1.Datasets.AddRange(New Guna.Charts.Interfaces.IGunaDataset() {Me.userdash, Me.Booksdash, Me.circulationdash})
+        ChartFont9.FontName = "Arial"
+        Me.GunaChart1.Legend.LabelFont = ChartFont9
+        Me.GunaChart1.Location = New System.Drawing.Point(294, 141)
+        Me.GunaChart1.Name = "GunaChart1"
+        Me.GunaChart1.Size = New System.Drawing.Size(685, 347)
+        Me.GunaChart1.TabIndex = 1
+        ChartFont10.FontName = "Arial"
+        ChartFont10.Size = 12
+        ChartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold
+        Me.GunaChart1.Title.Font = ChartFont10
+        ChartFont11.FontName = "Arial"
+        Me.GunaChart1.Tooltips.BodyFont = ChartFont11
+        ChartFont12.FontName = "Arial"
+        ChartFont12.Size = 9
+        ChartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold
+        Me.GunaChart1.Tooltips.TitleFont = ChartFont12
+        Me.GunaChart1.XAxes.GridLines = Grid4
+        ChartFont13.FontName = "Arial"
+        Tick4.Font = ChartFont13
+        Me.GunaChart1.XAxes.Ticks = Tick4
+        Me.GunaChart1.YAxes.GridLines = Grid5
+        ChartFont14.FontName = "Arial"
+        Tick5.Font = ChartFont14
+        Me.GunaChart1.YAxes.Ticks = Tick5
+        Me.GunaChart1.ZAxes.GridLines = Grid6
+        ChartFont15.FontName = "Arial"
+        PointLabel2.Font = ChartFont15
+        Me.GunaChart1.ZAxes.PointLabels = PointLabel2
+        ChartFont16.FontName = "Arial"
+        Tick6.Font = ChartFont16
+        Me.GunaChart1.ZAxes.Ticks = Tick6
+        '
+        'Guna2CustomGradientPanel1
+        '
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Guna2HtmlLabel2)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.Guna2CustomGradientPanel1.FillColor = System.Drawing.Color.Turquoise
+        Me.Guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.Chocolate
+        Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Orange
+        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(294, 35)
+        Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
+        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(186, 91)
+        Me.Guna2CustomGradientPanel1.TabIndex = 2
+        '
+        'Guna2CustomGradientPanel2
+        '
+        Me.Guna2CustomGradientPanel2.Controls.Add(Me.Guna2HtmlLabel3)
+        Me.Guna2CustomGradientPanel2.Controls.Add(Me.Guna2HtmlLabel4)
+        Me.Guna2CustomGradientPanel2.FillColor = System.Drawing.Color.Red
+        Me.Guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.Chocolate
+        Me.Guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.Orange
+        Me.Guna2CustomGradientPanel2.Location = New System.Drawing.Point(544, 35)
+        Me.Guna2CustomGradientPanel2.Name = "Guna2CustomGradientPanel2"
+        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(186, 91)
+        Me.Guna2CustomGradientPanel2.TabIndex = 3
+        '
+        'Guna2CustomGradientPanel3
+        '
+        Me.Guna2CustomGradientPanel3.Controls.Add(Me.Guna2HtmlLabel5)
+        Me.Guna2CustomGradientPanel3.Controls.Add(Me.Guna2HtmlLabel6)
+        Me.Guna2CustomGradientPanel3.FillColor = System.Drawing.Color.DarkMagenta
+        Me.Guna2CustomGradientPanel3.FillColor2 = System.Drawing.Color.Chocolate
+        Me.Guna2CustomGradientPanel3.FillColor3 = System.Drawing.Color.Orange
+        Me.Guna2CustomGradientPanel3.Location = New System.Drawing.Point(793, 35)
+        Me.Guna2CustomGradientPanel3.Name = "Guna2CustomGradientPanel3"
+        Me.Guna2CustomGradientPanel3.Size = New System.Drawing.Size(186, 91)
+        Me.Guna2CustomGradientPanel3.TabIndex = 3
+        '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Cambria", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(19, 10)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(19, 34)
+        Me.Guna2HtmlLabel1.TabIndex = 0
+        Me.Guna2HtmlLabel1.Text = "0"
+        '
+        'Guna2HtmlLabel2
+        '
+        Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Cambria", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(19, 50)
+        Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
+        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(58, 27)
+        Me.Guna2HtmlLabel2.TabIndex = 1
+        Me.Guna2HtmlLabel2.Text = "Users"
+        '
+        'Guna2HtmlLabel3
+        '
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Cambria", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(17, 50)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(63, 27)
+        Me.Guna2HtmlLabel3.TabIndex = 3
+        Me.Guna2HtmlLabel3.Text = "Books"
+        '
+        'Guna2HtmlLabel4
+        '
+        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Cambria", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(17, 10)
+        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
+        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(19, 34)
+        Me.Guna2HtmlLabel4.TabIndex = 2
+        Me.Guna2HtmlLabel4.Text = "0"
+        '
+        'Guna2HtmlLabel5
+        '
+        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel5.Font = New System.Drawing.Font("Cambria", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(16, 50)
+        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
+        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(112, 27)
+        Me.Guna2HtmlLabel5.TabIndex = 5
+        Me.Guna2HtmlLabel5.Text = "Circulation"
+        '
+        'Guna2HtmlLabel6
+        '
+        Me.Guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("Cambria", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(16, 10)
+        Me.Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
+        Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(19, 34)
+        Me.Guna2HtmlLabel6.TabIndex = 4
+        Me.Guna2HtmlLabel6.Text = "0"
+        '
+        'userdash
+        '
+        Me.userdash.BorderColor = System.Drawing.Color.Empty
+        Me.userdash.FillColor = System.Drawing.Color.LawnGreen
+        Me.userdash.Label = "Users"
+        Me.userdash.TargetChart = Me.GunaChart1
+        '
+        'Booksdash
+        '
+        Me.Booksdash.BorderColor = System.Drawing.Color.Empty
+        Me.Booksdash.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Booksdash.Label = "Books"
+        Me.Booksdash.TargetChart = Me.GunaChart1
+        '
+        'circulationdash
+        '
+        Me.circulationdash.BorderColor = System.Drawing.Color.Empty
+        Me.circulationdash.FillColor = System.Drawing.Color.Violet
+        Me.circulationdash.Label = "Circulation of Books"
+        Me.circulationdash.TargetChart = Me.GunaChart1
+        '
         'LMSDASHBOARD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -321,39 +305,38 @@ Partial Class LMSDASHBOARD
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "LMSDASHBOARD"
         Me.Text = "LMSDASHBOARD"
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
         CType(Me.BackWindow1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         CType(Me.MinimizedWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MaximizeWindow3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CloseWindow3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2CustomGradientPanel1.ResumeLayout(False)
+        Me.Guna2CustomGradientPanel1.PerformLayout()
+        Me.Guna2CustomGradientPanel2.ResumeLayout(False)
+        Me.Guna2CustomGradientPanel2.PerformLayout()
+        Me.Guna2CustomGradientPanel3.ResumeLayout(False)
+        Me.Guna2CustomGradientPanel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents searchbut As Button
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BackWindow1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents MinimizedWindow3 As PictureBox
     Friend WithEvents MaximizeWindow3 As PictureBox
     Friend WithEvents CloseWindow3 As PictureBox
+    Friend WithEvents GunaChart1 As Guna.Charts.WinForms.GunaChart
+    Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents Guna2CustomGradientPanel2 As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents Guna2CustomGradientPanel3 As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents userdash As Guna.Charts.WinForms.GunaLineDataset
+    Friend WithEvents Booksdash As Guna.Charts.WinForms.GunaLineDataset
+    Friend WithEvents circulationdash As Guna.Charts.WinForms.GunaLineDataset
 End Class
