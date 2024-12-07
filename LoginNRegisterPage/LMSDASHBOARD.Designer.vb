@@ -38,6 +38,7 @@ Partial Class LMSDASHBOARD
         Dim Tick3 As Guna.Charts.WinForms.Tick = New Guna.Charts.WinForms.Tick()
         Dim ChartFont8 As Guna.Charts.WinForms.ChartFont = New Guna.Charts.WinForms.ChartFont()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -56,7 +57,6 @@ Partial Class LMSDASHBOARD
         Me.MinimizedWindow3 = New System.Windows.Forms.PictureBox()
         Me.MaximizeWindow3 = New System.Windows.Forms.PictureBox()
         Me.CloseWindow3 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
         Me.Guna2CustomGradientPanel3.SuspendLayout()
@@ -83,6 +83,15 @@ Partial Class LMSDASHBOARD
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1001, 500)
         Me.Panel2.TabIndex = 5
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(111, 141)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Guna2CustomGradientPanel2
         '
@@ -296,15 +305,6 @@ Partial Class LMSDASHBOARD
         Me.CloseWindow3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.CloseWindow3.TabIndex = 5
         Me.CloseWindow3.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(106, 208)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'LMSDASHBOARD
         '
